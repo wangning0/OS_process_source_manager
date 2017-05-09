@@ -1,0 +1,15 @@
+{
+  "name": "os_process_source_manager",
+  "version": "1.0.0",
+  "description": "os experiment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "os",
+    "process_source_manager"
+  ],
+  "author": "wing <ran_ning@126.com>",
+  "license": "ISC"
+}
