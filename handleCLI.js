@@ -6,11 +6,10 @@ function handleCLI() {
         output: process.stdout,
         prompt: 'Testshell> '
     })
-    console.log('Testshell> init')
+    // console.log('Testshell> init')
     rl.prompt();
     rl.on('line', (line) => {
-        // console.log(`received: ${line}`);
-        rl.prompt();
+        // todo
     })
 }
 

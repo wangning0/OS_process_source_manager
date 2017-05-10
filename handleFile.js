@@ -12,10 +12,7 @@ module.exports = function() {
     })
 
     rl.on('line', (line) => {
-        console.log(`received: ${line}`);
+        // ...todo
     })
-
-    rl.on('close', () => {
-        console.log(`end`);
-    })
+    
 }

@@ -5,6 +5,7 @@ const handleFile = require('./handleFile');
 
 const length = process.argv.length;
 
+// 调度器
 if(length == 2) {
     handleCLI();
 } else {
