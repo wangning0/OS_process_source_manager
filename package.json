@@ -11,5 +11,8 @@
     "process_source_manager"
   ],
   "author": "wing <ran_ning@126.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
 }
