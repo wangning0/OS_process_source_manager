@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+const Handler = require('./Handler');
+const handler = new Handler();
+const length = process.argv.length;
+
+// 调度器
+function main() {
+    if(length == 2) {
+        handler.handleCLI();
+    } else {
+        const file = process.argv[2];
+        handler.handleFile(file);
+    }
+}
+
+main();
