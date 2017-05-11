@@ -1,3 +1,5 @@
+const executeCommand  = require('./executeCommand');
+
 module.exports = function() {
     const readline = require('readline');
     const fs = require('fs');
@@ -9,10 +11,12 @@ module.exports = function() {
 
     const rl = readline.createInterface({
         input: dataStream,
+        prompt: 'Testshell> '
     })
-
+    executeCommand(rl, 'init');
+    rl.prompt();
     rl.on('line', (line) => {
-        // ...todo
+        executeCommand(rl, line);
     })
     
 }

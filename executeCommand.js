@@ -36,7 +36,5 @@ function executeCommand(rl, input) {
         handleError();
         return;
     }
-    
-    console.log(' ');
 }
 module.exports = executeCommand;
