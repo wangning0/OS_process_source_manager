@@ -26,6 +26,7 @@ class Process {
         this.youngerSibling = -1;
         // process 的优先级 只能为1/2
         this.priority = thePriority;
+        this.list = ''; // 当前所处的List
     }
 }
 
