@@ -12,9 +12,9 @@ class Process {
         // 确定是否正在使用PCB
         this.used = used;
         // 已经请求成功的资源
-        this.holdResources = new Array(4); // (R1,R2,R3,R4)
+        this.holdResources = [0, 0, 0, 0]; // (R1,R2,R3,R4)
         // 正在请求的资源清单
-        this.requestedResources = new Array(4); // (R1,R2,R3,R4)
+        this.requestedResources = [0, 0, 0, 0]; // (R1,R2,R3,R4)
         // runing ready blocked 类型
         this.type = theState;
         // next process 的索引

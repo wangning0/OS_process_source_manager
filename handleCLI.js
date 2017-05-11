@@ -1,4 +1,5 @@
 const readline = require('readline');
+const executeCommand  = require('./executeCommand');
 
 function handleCLI() {
     const rl = readline.createInterface({
@@ -6,10 +7,12 @@ function handleCLI() {
         output: process.stdout,
         prompt: 'Testshell> '
     })
-    // console.log('Testshell> init')
+    rl.prompt();
+    executeCommand(rl, 'init');
     rl.prompt();
     rl.on('line', (line) => {
-        // todo
+        executeCommand(rl, line);
+        rl.prompt();
     })
 }
 

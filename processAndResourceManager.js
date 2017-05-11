@@ -35,7 +35,7 @@ class ProcessAndResourceManager {
             thePriority: 0,
             used: true
         });
-        this.readyList[0].insert(processes, 0);
+        this.readyList[0].insert(this.processes, 0);
         this.currentProcess = 0;
     }
 
@@ -87,7 +87,7 @@ class ProcessAndResourceManager {
 
      create(name, p) {
          // 创建不存在的优先级进程,则报错
-        if(!(p == 1) || (p == 2)) {
+        if(!(p == 1 || p == 2)) {
             return `不存在的priority${p}`
         }
 
@@ -96,7 +96,7 @@ class ProcessAndResourceManager {
         // }
 
         // 检测名字是否有相同的
-        this.processes.map((p => {
+        this.processes.forEach((p => {
             if(p.PID == name) {
                 return `进程的名字必须是独一无二的`;
             }
@@ -117,7 +117,7 @@ class ProcessAndResourceManager {
         }
         
         // currentProcess => parentProcess
-        const parent = currentProcess;
+        const parent = this.currentProcess;
 
         // older sibling
         const olderSibling = this.findYoungestChild(parent);
@@ -142,7 +142,6 @@ class ProcessAndResourceManager {
 
         // 插入就绪队列
         this.readyList[p].insert(this.processes, index);
-
         return this.scheduler();
      }
 
@@ -152,7 +151,7 @@ class ProcessAndResourceManager {
       * @param 进程名字
       * @return 当前运行的进程
       */
-     destory(name) {
+     destroy(name) {
         // if(name.length != 1) {
         //     return `进程的名字必须为单字符`
         // }
@@ -191,7 +190,6 @@ class ProcessAndResourceManager {
 
         // 破坏所有进程的后代
         this.killTree(index);
-
         // 调度器
         return this.scheduler();
      }
@@ -333,7 +331,7 @@ class ProcessAndResourceManager {
         const p = this.highestPriorityProcess();
         if(this.processes[p].priority > this.processes[this.currentProcess].priority || this.processes[this.currentProcess].type != State.RUNNING || !this.processes[this.currentProcess].used) {
             this.currentProcess = p;
-            this.processes[currentProcess].type = State.RUNNING;
+            this.processes[this.currentProcess].type = State.RUNNING;
         }
 
         return this.processes[this.currentProcess].PID;

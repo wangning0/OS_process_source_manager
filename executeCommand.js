@@ -3,7 +3,8 @@
  * @desc: 调度任务
  */
 const handleError = require('./handleError');
-const manager = require('./processAndResourceManager');
+const Manager = require('./processAndResourceManager');
+const manager = new Manager();
 function executeCommand(rl, input) {
     const _input = input.trim();
     const reg = /\S+/g;
@@ -12,9 +13,9 @@ function executeCommand(rl, input) {
         rl.prompt();
         return;
     }
-    const commandParams = _input.match(input);
-    const commandParamsNum = commandArr.length;
-    if(!(commandParamsNum >= 1 && commandParams <= 3)) {
+    const commandParams = _input.match(reg);
+    const commandParamsNum = commandParams.length;
+    if(!(commandParamsNum >= 1 && commandParamsNum <= 3)) {
         handleError();
         return;
     }

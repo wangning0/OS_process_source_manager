@@ -21,7 +21,7 @@ class List {
 
     // 链表的移除
     remove(processes, processIndex) {
-        if(!contains(processes, processIndex)) {
+        if(!this.contains(processes, processIndex)) {
             return;
         }
 
